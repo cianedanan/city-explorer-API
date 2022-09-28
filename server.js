@@ -22,7 +22,7 @@ app.listen(PORT, () => console.log(`Listening on Port ${PORT}`));
 class Forecast{
 	constructor(low, high, description, date){
 		this.date = date;
-		this.description = `Low of ${low}, high of ${high} with ${description.toLowerCase()},`;
+		this.description = `Low of ${low}, high of ${high} with ${description.toLowerCase()}.`;
 	}
 }
 
@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
 
 app.get('/weather', (req, res) => {
 	const query = req.query.searchQuery;
-	const weather = data.find( city => city.city_name.toLowerCase() === query.toLowerCase());
-	const weatherData = weather.data.map(details => new Forecast(details.low_temp, details.high_temp, details.weather.description, details.date));
+	const weather = data.find( city => city.city_name.toLowerCase() == query.toLowerCase());
+	const weatherData = weather.data.map(details => new Forecast(details.low_temp, details.high_temp, details.weather.description, details.datetime));
 	res.send(weatherData);
 });
 
