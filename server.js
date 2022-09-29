@@ -27,7 +27,9 @@ app.get('/', (req, res) => {
 // Defines route handler to perform getWeather
 app.get('/weather', getWeather);
 
-// Accesses the Weather API to brin
+//Accesses the Weather API using parameters from the taken from the front end and sends back a city weather data json.
+//The json data is mapped through and returns an array of instances of daily forecasts.
+//If the request for the API fails an error message is returned.
 async function getWeather (req, res){
 	const lat = req.query.lat;
 	const lon = req.query.lon;
@@ -44,6 +46,7 @@ async function getWeather (req, res){
 	}
 }
 
+//Creates instances of Forecast
 class Forecast{
 	constructor(low, high, description, date){
 		this.date = date;
@@ -51,7 +54,7 @@ class Forecast{
 	}
 }
 
-//catch all
+//catch all 
 app.get('*', (req, res) => {
 	res.status(404).send('Page Not Found');
 });
