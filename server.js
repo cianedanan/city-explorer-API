@@ -3,15 +3,14 @@
 // Set Up:
 // ----------
 
-// Require
+//Imports require 
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-
 const axios = require('axios');
 const { response } = require('express');
 
-// Express
+// Express opens a port for the server
 const app = express();
 const PORT = process.env.PORT || 3002;
 app.use(cors());
@@ -20,19 +19,15 @@ app.listen(PORT, () => console.log(`Listening on Port ${PORT}`));
 // Endpoints: 
 // -------------------
 
+// Testing for life
 app.get('/', (req, res) => {
 	res.send('Hello from the home route!');
 });
 
-// app.get('/weather', (req, res) => {
-// 	const query = req.query.searchQuery;
-// 	const weather = data.find( city => city.city_name.toLowerCase() == query.toLowerCase());
-// 	const weatherData = weather.data.map(details => new Forecast(details.low_temp, details.high_temp, details.weather.description, details.datetime));
-// 	res.send(weatherData);
-// });
-
+// Defines route handler to perform getWeather
 app.get('/weather', getWeather);
 
+// Accesses the Weather API to brin
 async function getWeather (req, res){
 	const lat = req.query.lat;
 	const lon = req.query.lon;
