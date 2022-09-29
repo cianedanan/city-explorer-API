@@ -29,7 +29,7 @@ This server sends weather data to the client using REST.
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-Name of feature: Display weather data
+### Name of feature: Display weather data
 
 Estimate of time needed to complete: 4 hours
 
@@ -44,3 +44,14 @@ Start time: 7:00 AM
 Finish time: 10:28 AM
 
 Actual time needed to complete: 10 hours
+
+
+### Name of feature: Populate weather forecast with accurate information
+
+Estimate of time needed to complete: 4 hours
+
+Start time: 2:15
+
+Finish time: 
+
+Actual time needed to complete: 
