@@ -47,7 +47,7 @@ async function getWeather (req, res){
 		response.status(500).send(`server error ${error}`);
 	}
 }
-
+//hi
 async function getMovies (req, res){
 	const searchQuery = req.query.searchQuery;
 	const url = `https://api.themoviedb.org/3/movie/?api_key=${process.env.MOVIE_API_KEY}`;
