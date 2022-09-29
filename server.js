@@ -27,6 +27,8 @@ app.get('/', (req, res) => {
 // Defines route handler to perform getWeather
 app.get('/weather', getWeather);
 
+app.get('/movies', getMovies);
+
 // Accesses the Weather API to brin
 async function getWeather (req, res){
 	const lat = req.query.lat;
@@ -48,6 +50,19 @@ class Forecast{
 	constructor(low, high, description, date){
 		this.date = date;
 		this.description = `Low of ${low}, high of ${high} with ${description.toLowerCase()}.`;
+	}
+}
+
+async function getMovies (req, res){
+	const searchQuery = req.query.searchQuery;
+	const url = `https://api.themoviedb.org/3/movie/76341?api_key=${MOVIE_API_KEY}`;
+	try{
+		const movieResponse = await axios.get(url);
+		res.status(200).send(movieResponse);
+	}
+	catch(error){
+		console.log('error message is: ' + error);
+		response.status(500).send(`server error ${error}`);
 	}
 }
 

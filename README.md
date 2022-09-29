@@ -50,8 +50,18 @@ Actual time needed to complete: 10 hours
 
 Estimate of time needed to complete: 4 hours
 
-Start time: 2:15
+Start time: 2:15 pm
 
-Finish time: 10:00
+Finish time: 10:00 pm
 
 Actual time needed to complete: 8 hours 15 minutes
+
+### Name of feature: Add movie info after a city search
+
+Estimate of time needed to complete: 4 hours
+
+Start time: 1:10 pm 
+
+Finish time: 
+
+Actual time needed to complete: 
