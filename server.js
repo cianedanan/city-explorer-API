@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 // Set Up:
 // ----------
 
@@ -33,12 +35,8 @@ app.get('/movies', getMovies);
 //The json data is mapped through and returns an array of instances of daily forecasts.
 //If the request for the API fails an error message is returned.
 async function getWeather (req, res){
-	const lat = req.query.lat;
-	const lon = req.query.lon;
-	const url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&lat=${lat}&lon=${lon}&days=7`;
 	try{
-		const weatherResponse = await axios.get(url);
-		console.log(url);
+		const weatherResponse = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&lat=${req.query.lat}&lon=${req.query.lon}&days=7`);
 	  const weatherData = weatherResponse.data.data.map(details => new Forecast(details.low_temp, details.high_temp, details.weather.description, details.datetime));
 		res.status(200).send(weatherData);
 	}
@@ -47,13 +45,12 @@ async function getWeather (req, res){
 		response.status(500).send(`server error ${error}`);
 	}
 }
-//hi
+
 async function getMovies (req, res){
-	const searchQuery = req.query.searchQuery;
-	const url = `https://api.themoviedb.org/3/movie/?api_key=${process.env.MOVIE_API_KEY}`;
 	try{
-		const movieResponse = await axios.get(url);
-		res.status(200).send(movieResponse);
+		const movieResponse = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${req.query.searchQuery}`);
+		const movieData = movieResponse.data.results.map(objects => new Movies(objects));
+		res.status(200).send(movieData);
 	}
 	catch(error){
 		console.log('error message is: ' + error);
@@ -66,6 +63,19 @@ class Forecast{
 	constructor(low, high, description, date){
 		this.date = date;
 		this.description = `Low of ${low}, high of ${high} with ${description.toLowerCase()}.`;
+	}
+}
+
+//Creates instances of movies and details
+class Movies{
+	constructor(objects){
+		this.title = objects.original_title;
+		this.overview = objects.overview;
+		this.avg_votes = objects.vote_average;
+		this.total_votes = objects.vote_count;
+		this.image_url = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${objects.poster_path}`;
+		this.popularity = objects.popularity;
+		this.released_on = objects.release_date;
 	}
 }
 
