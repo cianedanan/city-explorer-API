@@ -68,7 +68,7 @@ Finish time: 8:30 pm
 
 Actual time needed to complete: 7 hours 20 minutes.
 
-### Name of feature: Add modules 
+### Name of feature: Add modules
 
 Estimate of time needed to complete: 2 hours
 
