@@ -65,6 +65,3 @@ Start time: 1:10 pm
 Finish time: 8:30 pm
 
 Actual time needed to complete: 7 hours 20 minutes.
-
-
-
