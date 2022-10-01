@@ -7,11 +7,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-
 const { response } = require('express');
 
 //Adding relative paths for modules
-
 const getMovies = require('./modules/getMovies.js');
 
 const getWeather = require('./modules/getWeather.js');
@@ -26,6 +24,7 @@ app.listen(PORT, () => console.log(`Listening on Port ${PORT}`));
 // -------------------
 
 // Testing for life
+
 app.get('/', (req, res) => {
 	res.send('Hello from the home route!');
 });
