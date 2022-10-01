@@ -6,10 +6,10 @@ const cache = require('./cache.js');
 
 async function getMovies(req, res) {
   try {
-    const key = `${req.query.searchQuery}movies`
+    const key = `${req.query.searchQuery}movies`;
     //If key exists in cache and is valid, send that data from cache
     if (cache[key] && (Date.now() - cache[key].timeStamp < 2628000000)) {
-      console.log('Cache hit, forecast present');
+      console.log('Cache hit, movies present');
       res.status(200).send(cache[key].data);
     } else {
       const movieResponse = await axios.get(
@@ -23,12 +23,12 @@ async function getMovies(req, res) {
         timeStamp: Date.now(),
         data: movieData,
       }
-      console.log('Cache is:', cache[key].data);
+      // console.log('Cache is:', cache[key].data);
       res.status(200).send(movieData);
     }
   } catch (error) {
     console.log('error message is: ' + error);
-    response.status(500).send(`server error ${error}`);
+    res.status(500).send(`server error ${error}`);
   }
 }
 

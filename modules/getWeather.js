@@ -10,12 +10,12 @@ const cache = require('./cache.js');
 
 async function getWeather(req, res) {
   try {
-    const key = `${req.search.searchQuery}weather`; 
+    const key = `${req.query.searchQuery}weather`;
 
-    if(cache[key] && (Date.now() - cache[key].timestamp < 604800000)){
+    if (cache[key] && (Date.now() - cache[key].timeStamp < 604800000)) {
       console.log('Cache hit, forecast present');
-      res.status(200).res(cache[key].data);
-    } else{
+      res.status(200).send(cache[key].data);
+    } else {
       const weatherResponse = await axios.get(
         `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&lat=${req.query.lat}&lon=${req.query.lon}&days=7`
       );
@@ -32,12 +32,12 @@ async function getWeather(req, res) {
         timeStamp: Date.now(),
         data: weatherData,
       }
-      console.log('Cache is:', cache[key].data);
+      // console.log('Cache is:', cache[key].data);
       res.status(200).send(weatherData);
     }
   } catch (error) {
     console.log('error message is: ' + error);
-    response.status(500).send(`server error ${error}`);
+    res.status(500).send(`server error ${error}`);
   }
 }
 
