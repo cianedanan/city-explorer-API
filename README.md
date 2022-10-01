@@ -29,7 +29,7 @@ This server sends weather data and movie data to the client using REST then save
 
 9-30-2022 12.26am - Moved getWeather and getMovies functionality into modules.
 
-9-30-2022 11:10pm - 
+9-30-2022 11:10pm - Implemented cache storage.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
