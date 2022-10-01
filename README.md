@@ -90,14 +90,10 @@ Finish time: 11:10 PM
 
 Actual time needed to complete: 49 minutes
 
-
 ![WWRC Lab-06](src/img/WRRC-6.png)
-
 
 ![WWRC Lab-07](src/img/WRRC-7.png)
 
-
 ![WWRC Lab-08](src/img/WRRC-8.png)
-
 
 ![WWRC Lab-10](src/img/WRRC-10.png)
