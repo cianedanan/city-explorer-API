@@ -1,5 +1,5 @@
 'use strict';
 
-const cache = require('axios');
+const cache = {};
 
 module.exports = cache;
