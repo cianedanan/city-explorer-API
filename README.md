@@ -29,7 +29,7 @@ This server sends weather data and movie data to the client using REST then save
 
 9-30-2022 12.26am - Moved getWeather and getMovies functionality into modules.
 
-9-30-2022 11:10pm - 
+9-30-2022 11:10pm - Cache working.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -90,10 +90,10 @@ Finish time: 11:10 PM
 
 Actual time needed to complete: 49 minutes
 
-![WWRC Lab-06](img/WRRC-6.png)
+![WWRC Lab-06](./img/WRRC-6.png)
 
-![WWRC Lab-07](img/WRRC-7.png)
+![WWRC Lab-07](./img/WRRC-7.png)
 
-![WWRC Lab-08](img/WRRC-8.png)
+![WWRC Lab-08](./img/WRRC-8.png)
 
-![WWRC Lab-10](img/WRRC-10.PNG)
+![WWRC Lab-10](./img/WRRC-10.PNG)
