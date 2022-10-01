@@ -1,11 +1,11 @@
 # City Explorer API
 
 **Author**: Cianenry Danan
-**Version**: 1.0.2 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.3 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
-This server sends weather data and movie data to the client using REST.
+This server sends weather data and movie data to the client using REST then saves the data into a cache.
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
@@ -28,6 +28,8 @@ This server sends weather data and movie data to the client using REST.
 9-29-2022 8:44pm - Application now connects to both weather and movie data bases.
 
 9-30-2022 12.26am - Moved getWeather and getMovies functionality into modules.
+
+9-30-2022 11:10pm - 
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -77,3 +79,25 @@ Start time: 11:32pm
 Finish time: 12:23am
 
 Actual time needed to complete: 1 hour 9 minutes.
+
+### Name of feature: Create a cache to store data
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 10:31 PM
+
+Finish time: 11:10 PM
+
+Actual time needed to complete: 49 minutes
+
+
+![WWRC Lab-06](src/img/WRRC-6.png)
+
+
+![WWRC Lab-07](src/img/WRRC-7.png)
+
+
+![WWRC Lab-08](src/img/WRRC-8.png)
+
+
+![WWRC Lab-10](src/img/WRRC-10.png)

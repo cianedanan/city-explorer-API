@@ -2,15 +2,30 @@
 
 const axios = require('axios');
 
+const cache = require('./cache.js');
+
 async function getMovies(req, res) {
   try {
-    const movieResponse = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${req.query.searchQuery}`
-    );
-    const movieData = movieResponse.data.results.map(
-      (objects) => new Movies(objects)
-    );
-    res.status(200).send(movieData);
+    const key = `${req.query.searchQuery}movies`
+    //If key exists in cache and is valid, send that data from cache
+    if (cache[key] && (Date.now() - cache[key].timeStamp < 2628000000)) {
+      console.log('Cache hit, forecast present');
+      res.status(200).send(cache[key].data);
+    } else {
+      const movieResponse = await axios.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${req.query.searchQuery}`
+      );
+      const movieData = movieResponse.data.results.map(
+        (objects) => new Movies(objects)
+      );
+      //Save to cache
+      cache[key] = {
+        timeStamp: Date.now(),
+        data: movieData,
+      }
+      console.log('Cache is:', cache[key].data);
+      res.status(200).send(movieData);
+    }
   } catch (error) {
     console.log('error message is: ' + error);
     response.status(500).send(`server error ${error}`);
